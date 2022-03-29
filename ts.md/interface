@@ -1,0 +1,29 @@
+interface Person {
+  name: string'
+  age: number;
+  }
+const p1: Person = { name: 'mike', age: 23 };
+const p2: Person = { name: 'mike, age:'ten" }; //타입 에러
+ --> age 속성 타입을 만족하지 못해서 에러 발생
+ 
+ 
+ interface Person {
+  name: string;
+  age?: number;
+}
+const p1: Person = { name: 'mike' };
+
+--> ?기호를 사용하지 않고 undefined를 유니온 | 타입으로 추가하면 선택 속성과 달리 명시적으로 age속성을 입력해야함
+
+interface 읽기 전용 속성(값이 변하지 않는 속성) - readonly 
+
+interface Person {
+  readonly name: string;
+  age?: number;
+}
+const p1: Person = {
+  name: 'mike',
+};
+p1.name = 'jone'; //컴파일 에러 
+
+index : 인터페이스에서 속성 이름을 구체적으로 정의하지 않고 값의 타입만 정의하는 것
